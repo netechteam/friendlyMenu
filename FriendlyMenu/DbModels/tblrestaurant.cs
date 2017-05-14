@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace FriendlyMenu.Models
+namespace DbModels
 {
     [Table("restaurant")]
-    public class Restaurant
+    public class tblrestaurant
     {
         [Column("id")]
         public int Id { get; set; }

@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FriendlyMenu.Data;
+using DataAccessors;
+using Entities;
+using Interfaces.DataAccessors;
+using Interfaces.Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Managers;
 
 namespace FriendlyMenu
 {
@@ -29,6 +33,14 @@ namespace FriendlyMenu
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Managers
+            services.AddScoped<IRestaurantManager, RestaurantManager>();
+
+            // DataAccessors
+            services.AddScoped<IRestaurantDataAccessor, RestaurantDataAccessor>();
+
+            // Services
+
             // Add framework services.
             services.AddMvc();
 
@@ -41,6 +53,9 @@ namespace FriendlyMenu
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+
+
 
             if (env.IsDevelopment())
             {
