@@ -7,6 +7,7 @@ namespace Entities
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
-        public DbSet<tblrestaurant> Restaurants { get; set; }
+        public DbSet<tblrestaurant> Restaurant { get; set; }
+        public DbSet<tbladdress> Address { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace DataAccessors
         }
         public async Task<RestaurantDM> GetRestaurant(int restaurantId)
         {
-            var restaurant = await _databaseContext.Restaurants.FirstOrDefaultAsync(x => x.Id == restaurantId);
+            var restaurant = await _databaseContext.Restaurant.FirstOrDefaultAsync(x => x.Id == restaurantId);
 
             return BuildRestaurantDM(restaurant);
         }

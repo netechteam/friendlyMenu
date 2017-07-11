@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Managers\IAddressManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Engines\" />
   </ItemGroup>
 
