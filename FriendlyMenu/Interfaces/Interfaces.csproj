@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="DataAccessors\IDishDataAccessor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ActionModels\ActionModels.csproj" />
     <ProjectReference Include="..\DataModels\DataModels.csproj" />
     <ProjectReference Include="..\ViewModels\ViewModels.csproj" />

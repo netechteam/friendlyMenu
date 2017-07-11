@@ -38,6 +38,7 @@ namespace FriendlyMenu
 
             // DataAccessors
             services.AddScoped<IRestaurantDataAccessor, RestaurantDataAccessor>();
+            services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
 
             // Services
 

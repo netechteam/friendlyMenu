@@ -9,5 +9,6 @@ namespace Entities
 
         public DbSet<tblrestaurant> Restaurant { get; set; }
         public DbSet<tbladdress> Address { get; set; }
+        public DbSet<tbldish> Dish { get; set; }
     }
 }
