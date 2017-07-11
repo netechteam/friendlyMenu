@@ -25,7 +25,7 @@ namespace DataAccessors
             return BuildDishDM(dish);
         }
 
-        private DishDM BuildDishDM(tbldish dish)
+        private DishDM BuildDishDM(tblDish dish)
         {
             if (dish == null)
                 return null;

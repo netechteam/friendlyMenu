@@ -24,7 +24,7 @@ namespace DataAccessors
             return BuildRestaurantDM(restaurant);
         }
 
-        private RestaurantDM BuildRestaurantDM(tblrestaurant restaurant)
+        private RestaurantDM BuildRestaurantDM(tblRestaurant restaurant)
         {
             if (restaurant == null)
                 return null;

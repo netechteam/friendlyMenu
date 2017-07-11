@@ -25,7 +25,7 @@ namespace DataAccessors
             return BuildDishIngredientDM(dishIngredient);
         }
 
-        private DishIngredientDM BuildDishIngredientDM(tbldishingredient dishIngredient)
+        private DishIngredientDM BuildDishIngredientDM(tblDishIngredient dishIngredient)
         {
             if (dishIngredient == null)
                 return null;

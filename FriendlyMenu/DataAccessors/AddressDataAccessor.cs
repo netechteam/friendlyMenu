@@ -25,7 +25,7 @@ namespace DataAccessors
             return BuildAddressDM(address);
         }
 
-        private AddressDM BuildAddressDM(tbladdress address)
+        private AddressDM BuildAddressDM(tblAddress address)
         {
             if (address == null)
                 return null;

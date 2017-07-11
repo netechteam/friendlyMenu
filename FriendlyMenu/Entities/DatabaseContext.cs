@@ -7,10 +7,11 @@ namespace Entities
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
-        public DbSet<tblrestaurant> Restaurant { get; set; }
-        public DbSet<tbladdress> Address { get; set; }
-        public DbSet<tbldish> Dish { get; set; }
-        public DbSet<tbldishingredient> DishIngredient { get; set; }
-        public DbSet<tblingredienttype> IngredientType { get; set; }
+        public DbSet<tblRestaurant> Restaurant { get; set; }
+        public DbSet<tblAddress> Address { get; set; }
+        public DbSet<tblDish> Dish { get; set; }
+        public DbSet<tblDishIngredient> DishIngredient { get; set; }
+        public DbSet<tblIngredienttype> IngredientType { get; set; }
+        public DbSet<tblMenuCategory> MenuCategory { get; set; }
     }
 }

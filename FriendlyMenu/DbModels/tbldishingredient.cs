@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DbModels
 {
     [Table("dishingredient")]
-    public class tbldishingredient
+    public class tblDishIngredient
     {
         [Column("id")]
         public int Id { get; set; }

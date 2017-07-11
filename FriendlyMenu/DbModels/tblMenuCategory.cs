@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("ingredienttype")]
-    public class tblIngredienttype
+    [Table("menucategory")]
+    public class tblMenuCategory
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("typename")]
-        public string TypeName{ get; set; }
+        [Column("categoryname")]
+        public string CategoryName { get; set; }
     }
 }
