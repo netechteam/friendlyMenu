@@ -13,5 +13,6 @@ namespace Entities
         public DbSet<tblDishIngredient> DishIngredient { get; set; }
         public DbSet<tblIngredienttype> IngredientType { get; set; }
         public DbSet<tblMenuCategory> MenuCategory { get; set; }
+        public DbSet<tblDishIngredientArray> DishIngredientArray{ get; set; }
     }
 }

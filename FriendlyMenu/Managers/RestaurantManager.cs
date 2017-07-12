@@ -11,11 +11,19 @@ namespace Managers
     {
         private readonly IRestaurantDataAccessor _restaurantDataAccessor;
         private readonly IAddressDataAccessor _addressDataAccessor;
+        private readonly IDishIngredientDataArrayAccessor _dishIngredientDataArrayAccessor;
 
-        public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor, IAddressDataAccessor addressDataAccessor)
+        public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor, IAddressDataAccessor addressDataAccessor,
+            IDishIngredientDataArrayAccessor dishIngredientDataArrayAccessor)
         {
             _restaurantDataAccessor = restaurantDataAccessor;
             _addressDataAccessor = addressDataAccessor;
+            _dishIngredientDataArrayAccessor = dishIngredientDataArrayAccessor;
+        }
+
+        public async Task AddDishIngredientArray(DishIngredientArrayDM dishIngredientArray)
+        {
+            await _dishIngredientDataArrayAccessor.AddDishIngredientArray(dishIngredientArray);
         }
 
         public async Task<RestaurantVM> GetRestaurant(int restaurantId)

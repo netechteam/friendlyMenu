@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Interfaces.Managers;
 using Microsoft.AspNetCore.Mvc;
+using DataModels;
 
 namespace FriendlyMenu.Controllers
 {
@@ -20,6 +21,14 @@ namespace FriendlyMenu.Controllers
         {
             var restaurant = await _restaurantManager.GetRestaurant(1);
 
+            var dishIngredientArray = new DishIngredientArrayDM
+            {
+                DishName = "Tai Chicken",
+                Id = 3,
+                IngredientId = new int[] { 1, 2, 3, 4, 5, 6 }
+            };
+
+            await _restaurantManager.AddDishIngredientArray(dishIngredientArray);
             return View();
         }
     }
