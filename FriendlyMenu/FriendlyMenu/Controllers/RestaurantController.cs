@@ -21,11 +21,11 @@ namespace FriendlyMenu.Controllers
         {
             var restaurant = await _restaurantManager.GetRestaurant(1);
 
-            var dishIngredientArray = new DishIngredientArrayDM
+            var dishIngredientArray = new DishIngredientDM
             {
-                DishName = "Tai Chicken",
-                Id = 3,
-                IngredientId = new int[] { 1, 2, 3, 4, 5, 6 }
+                // Leave ID blank when doing insert to auto_increment
+                DishName = "List Chicken",
+                IngredientId = new List<int> { 1, 2, 3, 4, 5, 6 }
             };
 
             await _restaurantManager.AddDishIngredientArray(dishIngredientArray);

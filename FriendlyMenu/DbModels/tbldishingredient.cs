@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
@@ -8,9 +9,10 @@ namespace DbModels
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("dishid")]
-        public int DishId { get; set; }
+        [Column("dishname")]
+        public string DishName { get; set; }
         [Column("ingredientid")]
-        public int IngredientId { get; set; }
+        //public int [] DishId { get; set; }
+        public List<int> DishId { get; set; }
     }
 }

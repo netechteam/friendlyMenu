@@ -18,24 +18,20 @@ namespace DataAccessors
         {
             _databaseContext = databaseContext;
         }
-        public async Task<DishIngredientDM> GetDishIngredients(int restaurantId)
+
+        public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
         {
-            var dishIngredient = await _databaseContext.DishIngredient.FirstOrDefaultAsync(x => x.Id == restaurantId);
-
-            return BuildDishIngredientDM(dishIngredient);
-        }
-
-        private DishIngredientDM BuildDishIngredientDM(tblDishIngredient dishIngredient)
-        {
-            if (dishIngredient == null)
-                return null;
-
-            return new DishIngredientDM
+            var dataModel = new tblDishIngredient
             {
-                Id = dishIngredient.Id,
-                DishId = dishIngredient.DishId,
-                IngredientId = dishIngredient.IngredientId
+                Id = dishIngredientArray.Id,
+                DishId = dishIngredientArray.IngredientId,
+                DishName = dishIngredientArray.DishName
             };
+
+            _databaseContext.DishIngredient.Add(dataModel);
+
+            _databaseContext.SaveChanges();
         }
+
     }
 }

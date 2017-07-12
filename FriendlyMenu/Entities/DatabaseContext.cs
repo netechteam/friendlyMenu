@@ -11,8 +11,9 @@ namespace Entities
         public DbSet<tblAddress> Address { get; set; }
         public DbSet<tblDish> Dish { get; set; }
         public DbSet<tblDishIngredient> DishIngredient { get; set; }
+        public DbSet<tblIngredient> Ingredient { get; set; }
         public DbSet<tblIngredienttype> IngredientType { get; set; }
         public DbSet<tblMenuCategory> MenuCategory { get; set; }
-        public DbSet<tblDishIngredientArray> DishIngredientArray{ get; set; }
+        public DbSet<tblSharedHour> SharedHour { get; set; }
     }
 }
