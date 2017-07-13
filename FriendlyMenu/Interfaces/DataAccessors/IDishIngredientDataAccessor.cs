@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
 
-namespace Interfaces.Managers
+namespace Interfaces.DataAccessors
 {
-    public interface IRestaurantManager
+    public interface IDishIngredientDataAccessor
     {
-        Task<RestaurantVM> GetRestaurant(int restaurantId);
         Task AddDishIngredientArray(DishIngredientDM dishIngredientArray);
+        Task<DishIngredientDM> GetDishIngredient(int id);
     }
 }

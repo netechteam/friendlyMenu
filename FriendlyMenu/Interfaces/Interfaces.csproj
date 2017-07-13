@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Managers\IAddressManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Engines\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="DataAccessors\IDishDataAccessor.cs" />
   </ItemGroup>
 
   <ItemGroup>

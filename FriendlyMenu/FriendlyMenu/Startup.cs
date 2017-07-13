@@ -26,6 +26,13 @@ namespace FriendlyMenu
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            /* CODE TO EXTERNALIZE APPSETTINGS.JSON */
+
+            //var absolutepath = System.IO.Path.GetFullPath("../../");
+            //Configuration = new ConfigurationBuilder()
+            //    .SetBasePath(absolutepath)
+            //    .AddJsonFile($"global.json", optional: true, reloadOnChange: true).Build();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -38,6 +45,9 @@ namespace FriendlyMenu
 
             // DataAccessors
             services.AddScoped<IRestaurantDataAccessor, RestaurantDataAccessor>();
+            services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
+            services.AddScoped<IDishDataAccessor, DishDataAccessor>();
+            services.AddScoped<IDishIngredientDataAccessor, DishIngredientDataAccessor>();
 
             // Services
 
