@@ -19,12 +19,30 @@ namespace DataAccessors
             _databaseContext = databaseContext;
         }
 
+        public async Task<DishIngredientDM> GetDishIngredient(int id)
+        {
+
+            var dish = _databaseContext.DishIngredient.FirstOrDefault(x => x.Id == id);
+
+            var dataModel = new DishIngredientDM();
+            if (dish != null)
+            {
+                dataModel.Id = dish.Id;
+                dataModel.DishName = dish.DishName;
+                dataModel.IngredientId = dish.IngredientId.ToList();
+            }
+
+            return dataModel;
+
+        }
+
+        
         public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
         {
             var dataModel = new tblDishIngredient
             {
                 Id = dishIngredientArray.Id,
-                DishId = dishIngredientArray.IngredientId,
+                IngredientId = dishIngredientArray.IngredientId.ToArray(),
                 DishName = dishIngredientArray.DishName
             };
 

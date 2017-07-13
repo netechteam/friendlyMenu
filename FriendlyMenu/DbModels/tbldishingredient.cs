@@ -12,7 +12,6 @@ namespace DbModels
         [Column("dishname")]
         public string DishName { get; set; }
         [Column("ingredientid")]
-        //public int [] DishId { get; set; }
-        public List<int> DishId { get; set; }
+        public int[] IngredientId { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace Interfaces.DataAccessors
     public interface IDishIngredientDataAccessor
     {
         Task AddDishIngredientArray(DishIngredientDM dishIngredientArray);
+        Task<DishIngredientDM> GetDishIngredient(int id);
     }
 }
