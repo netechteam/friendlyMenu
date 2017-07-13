@@ -27,13 +27,12 @@ namespace FriendlyMenu
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            if (env.ContentRootPath.Contains("hnguy"))
-            {
-                var fileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider("C:\\Users\\hnguy\\Documents\\NETT");
-                Configuration = new ConfigurationBuilder()
-                    .SetBasePath(env.ContentRootPath)
-                    .AddJsonFile(fileProvider, $"global.json", optional: true, reloadOnChange: true).Build();
-            }
+            /* CODE TO EXTERNALIZE APPSETTINGS.JSON */
+
+            //var absolutepath = System.IO.Path.GetFullPath("../../");
+            //Configuration = new ConfigurationBuilder()
+            //    .SetBasePath(absolutepath)
+            //    .AddJsonFile($"global.json", optional: true, reloadOnChange: true).Build();
         }
 
         public IConfigurationRoot Configuration { get; }
