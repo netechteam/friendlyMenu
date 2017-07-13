@@ -26,6 +26,14 @@ namespace FriendlyMenu
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            if (env.ContentRootPath.Contains("hnguy"))
+            {
+                var fileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider("C:\\Users\\hnguy\\Documents\\NETT");
+                Configuration = new ConfigurationBuilder()
+                    .SetBasePath(env.ContentRootPath)
+                    .AddJsonFile(fileProvider, $"global.json", optional: true, reloadOnChange: true).Build();
+            }
         }
 
         public IConfigurationRoot Configuration { get; }
