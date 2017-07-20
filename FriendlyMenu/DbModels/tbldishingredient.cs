@@ -9,6 +9,8 @@ namespace DbModels
     {
         [Column("id")]
         public int Id { get; set; }
+        [Column("restaurantid")]
+        public int RestaurantId { get; set; }
         [Column("dishname")]
         public string DishName { get; set; }
         [Column("ingredientid")]

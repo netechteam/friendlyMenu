@@ -7,6 +7,7 @@
         public int MenuCategoryId { get; set; }
         public string DishName { get; set; }
         public string Description { get; set; }
-        public double Price { get; set; }
+        public double PriceLunch { get; set; }
+        public double PriceDinner { get; set; }
     }
 }

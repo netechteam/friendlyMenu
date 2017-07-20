@@ -16,7 +16,9 @@ namespace DbModels
         public string DishName { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("price")]
-        public double Price { get; set; }
+        [Column("pricelunch")]
+        public double PriceLunch { get; set; }
+        [Column("pricedinner")]
+        public double PriceDinner { get; set; }
     }
 }
