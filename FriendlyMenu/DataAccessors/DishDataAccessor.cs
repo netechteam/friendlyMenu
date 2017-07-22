@@ -22,23 +22,23 @@ namespace DataAccessors
         {
             var dish = await _databaseContext.Dish.FirstOrDefaultAsync(x => x.Id == restaurantId);
 
-            return BuildDishDM(dish);
+            return null;
         }
 
-        private DishDM BuildDishDM(tblDish dish)
-        {
-            if (dish == null)
-                return null;
+        //private DishDM BuildDishDM(tblDish dish)
+        //{
+        //if (dish == null)
+        //    return null;
 
-            return new DishDM
-            {
-                Id = dish.Id,
-                RestaurantId = dish.RestaurantId,
-                MenuCategoryId = dish.MenuCategoryId,
-                Description = dish.Description,
-                Price = dish.Price
-                
-            };
-        }
+        //return new DishDM
+        //{
+        //    Id = dish.Id,
+        //    RestaurantId = dish.RestaurantId,
+        //    MenuCategoryId = dish.MenuCategoryId,
+        //    Description = dish.Description,
+        //    Price = dish.Price
+
+        //};
+        //}
     }
 }

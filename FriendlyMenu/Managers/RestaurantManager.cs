@@ -29,11 +29,9 @@ namespace Managers
         public async Task<RestaurantVM> GetRestaurant(int restaurantId)
         {
             var restaurantDataModel  =  await _restaurantDataAccessor.GetRestaurant(restaurantId);
-            var addressDataModel = await _addressDataAccessor.GetAddress(restaurantId);
-            var addressVM = BuildAddressVM(addressDataModel);
-            var dishIngredient = await _dishIngredientDataAccessor.GetDishIngredient(1);
-
-           
+            //var addressDataModel = await _addressDataAccessor.GetAddress(restaurantId);
+            //var addressVM = BuildAddressVM(addressDataModel);
+            //var dishIngredient = await _dishIngredientDataAccessor.GetDishIngredient(1);
 
             return BuildRestaurantVM(restaurantDataModel);
         }
