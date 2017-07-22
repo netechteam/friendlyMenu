@@ -33,8 +33,6 @@ namespace Managers
             var addressVM = BuildAddressVM(addressDataModel);
             var dishIngredient = await _dishIngredientDataAccessor.GetDishIngredient(1);
 
-           
-
             return BuildRestaurantVM(restaurantDataModel);
         }
 

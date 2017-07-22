@@ -24,15 +24,15 @@ namespace DataAccessors
 
             var dish = _databaseContext.DishIngredient.FirstOrDefault(x => x.Id == id);
 
-            var dataModel = new DishIngredientDM();
-            if (dish != null)
-            {
-                dataModel.Id = dish.Id;
-                dataModel.DishName = dish.DishName;
-                dataModel.IngredientId = dish.IngredientId.ToList();
-            }
+            //var dataModel = new DishIngredientDM();
+            //if (dish != null)
+            //{
+            //    dataModel.Id = dish.Id;
+            //    dataModel.DishName = dish.DishName;
+            //    dataModel.IngredientId = dish.IngredientId.ToList();
+            //}
 
-            return dataModel;
+            return null;
 
         }
 
