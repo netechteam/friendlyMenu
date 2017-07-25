@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Interfaces.Managers;
 using Microsoft.AspNetCore.Mvc;
 using DataModels;
+using ViewModels;
 
 namespace FriendlyMenu.Controllers
 {
@@ -30,6 +31,39 @@ namespace FriendlyMenu.Controllers
 
             //await _restaurantManager.AddDishIngredientArray(dishIngredientArray);
             return View();
+        }
+
+        [Route("menu/{id}")]
+        public async Task<IActionResult> Menu(int id)
+        {
+
+            var viewModel = new MenuPageVM
+            {
+                MenuTitle = "Beef",
+                Dishes = new List<DishSummaryVM>
+                {
+                    new DishSummaryVM
+                    {
+                        Description = "Seafood",
+                        ImageUrl = "http://dolerecipe.dolesunshine.com/RecipeImages/3397/Sweet%20Sour%20Shrimp%201000x383.jpg",
+                        Ingredients = "Shrimps",
+                        Name = "Sweet & Sour Shrimp",
+                        Price = "$6.66"
+                    },
+
+                    new DishSummaryVM
+                    {
+                        Description = "Beef",
+                        ImageUrl = "http://www.creekstonefarms.com/media/recipes/52/lg.jpg",
+                        Ingredients = "Beef, broccoli",
+                        Name = "Beef w. Broccoli",
+                        Price = "$6.66"
+                    }
+                }
+
+            };
+
+            return View(viewModel);
         }
     }
 }

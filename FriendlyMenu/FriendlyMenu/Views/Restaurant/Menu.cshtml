@@ -1,0 +1,27 @@
+﻿@model ViewModels.MenuPageVM
+
+
+<div id="menuPage">
+    <h2>@Model.MenuTitle</h2>
+    
+    @foreach (var dish in Model.Dishes)
+    {
+        <div class="dishSummary">
+            <div class="dishName">
+                @Html.DisplayFor(model => dish.Name)
+                <span>(@dish.Price)</span>
+            </div>
+            <div class="dishDescription">
+                @Html.DisplayFor(model => dish.Description)
+            </div>
+            <div class="dishIngredient">
+                @Html.DisplayFor(model => dish.Ingredients)
+            </div>
+            <div class="dishImage">
+                <img src="@dish.ImageUrl" alt="@dish.Name" style="width: 200px; height:auto;" />
+            </div>
+        </div>
+
+        <br/>
+    }
+</div>
