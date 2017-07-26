@@ -25,7 +25,7 @@ namespace FriendlyMenu.Controllers
             var dishIngredientArray = new DishIngredientDM
             {
                 // Leave ID blank when doing insert to auto_increment PK
-                DishName = "Thien dep trai Chicken2",
+                DishName = "Thien Be De Chicken2",
                 //IngredientId = new List<int> { 1, 2, 3, 4, 5, 6 }.ToArray
             };
 
