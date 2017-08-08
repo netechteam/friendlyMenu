@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataAccessors;
+﻿using DataAccessors;
 using Entities;
 using Interfaces.DataAccessors;
 using Interfaces.Managers;
@@ -13,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Managers;
+using Misc;
 
 namespace FriendlyMenu
 {
@@ -48,11 +45,13 @@ namespace FriendlyMenu
             services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
             services.AddScoped<IDishDataAccessor, DishDataAccessor>();
             services.AddScoped<IDishIngredientDataAccessor, DishIngredientDataAccessor>();
-
             // Services
 
             // Add framework services.
             services.AddMvc();
+
+            services.AddMultitenancy<AppTenant, AppTenantResolver>();
+            services.Configure<MultitenancyOptions>(Configuration.GetSection("Multitenancy"));
 
             var connectionString = Configuration["DbContextSettings:ConnectionString"];
             services.AddDbContext<DatabaseContext>(opts => opts.UseNpgsql(connectionString));
@@ -78,6 +77,8 @@ namespace FriendlyMenu
             }
 
             app.UseStaticFiles();
+
+            app.UseMultitenancy<AppTenant>();
 
             app.UseMvc(routes =>
             {

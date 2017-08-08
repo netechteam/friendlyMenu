@@ -6,21 +6,28 @@ using Interfaces.Managers;
 using Microsoft.AspNetCore.Mvc;
 using DataModels;
 using ViewModels;
+using Misc;
 
 namespace FriendlyMenu.Controllers
 {
     public class RestaurantController : Controller
     {
         private readonly IRestaurantManager _restaurantManager;
+        private readonly AppTenant _tenant;
 
-        public RestaurantController(IRestaurantManager restaurantManager)
+        public RestaurantController(IRestaurantManager restaurantManager, AppTenant tenant)
         {
+            if (tenant == null)
+                throw new NullReferenceException("tenant object cannot be null");
+
             _restaurantManager = restaurantManager;
+            _tenant = tenant;
+
         }
 
         public async Task<IActionResult> Index()
         {
-            var restaurant = await _restaurantManager.GetRestaurant(1);
+            var restaurant = await _restaurantManager.GetRestaurant(_tenant.RestaurantId);
 
             var dishIngredientArray = new DishIngredientDM
             {
@@ -66,4 +73,7 @@ namespace FriendlyMenu.Controllers
             return View(viewModel);
         }
     }
+
+    // http://benfoster.io/blog/asp-net-5-multitenancy
+
 }
