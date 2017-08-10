@@ -8,7 +8,7 @@ namespace DbModels
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("typename")]
-        public string TypeName{ get; set; }
+        [Column("ingredienttypename")]
+        public string IngredientTypeName{ get; set; }
     }
 }

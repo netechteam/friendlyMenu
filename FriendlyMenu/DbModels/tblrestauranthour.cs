@@ -11,6 +11,6 @@ namespace DbModels
         [Column("restaurantid")]
         public int RestaurantId { get; set; }
         [Column("sharedhourid")]
-        public string SharedHourId{ get; set; }
+        public int SharedHourId{ get; set; }
     }
 }

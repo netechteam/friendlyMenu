@@ -8,12 +8,12 @@ namespace DbModels
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("openhour")]
-        public DateTime openhour { get; set; }
-        [Column("closehour")]
-        public DateTime closehour { get; set; }
+        [Column("opentime")]
+        public DateTime OpenTime { get; set; }
+        [Column("closetime")]
+        public DateTime CloseTime { get; set; }
         [Column("dayofweek")]
-        public DateTime DayOfWeek { get; set; }
+        public string DayOfWeek { get; set; }
 
     }
 }

@@ -21,22 +21,24 @@ namespace DataAccessors
 
         public async Task<DishIngredientDM> GetDishIngredient(int id)
         {
+            var dishIngredient = await _databaseContext.DishIngredient.FirstOrDefaultAsync(x => x.Id == id);
+            return BuildDishIngredientDM(dishIngredient);
+        }
 
-            var dish = _databaseContext.DishIngredient.FirstOrDefault(x => x.Id == id);
-
-            //var dataModel = new DishIngredientDM();
-            //if (dish != null)
-            //{
-            //    dataModel.Id = dish.Id;
-            //    dataModel.DishName = dish.DishName;
-            //    dataModel.IngredientId = dish.IngredientId.ToList();
-            //}
-
-            return null;
+        private DishIngredientDM BuildDishIngredientDM(tblDishIngredient dishIngredient)
+        {
+            if (dishIngredient == null)
+                return null;
+            return new DishIngredientDM
+            {
+                Id = dishIngredient.Id,
+                RestaurantId = dishIngredient.RestaurantId,
+                DishName = dishIngredient.DishName,
+                IngredientId = dishIngredient.IngredientId
+            };
 
         }
 
-        
         public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
         {
             var dataModel = new tblDishIngredient

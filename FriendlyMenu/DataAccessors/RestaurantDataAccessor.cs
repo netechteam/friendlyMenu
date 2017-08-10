@@ -32,7 +32,8 @@ namespace DataAccessors
             return new RestaurantDM
             {
                 Id = restaurant.Id,
-                RestaurantName = restaurant.RestaurantName
+                RestaurantName = restaurant.RestaurantName,
+                 RestaurantAlias = restaurant.RestaurantAlias
             };
         }
     }
