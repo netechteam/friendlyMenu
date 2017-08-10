@@ -1,31 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.4
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendlyMenu", "FriendlyMenu\FriendlyMenu.csproj", "{77BAE0CF-FAF7-4BFF-BA40-A961FD69992A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers", "Managers\Managers.csproj", "{41E43100-4FC1-4ED7-8451-AAB0963BB727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managers", "Managers\Managers.csproj", "{41E43100-4FC1-4ED7-8451-AAB0963BB727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessors", "DataAccessors\DataAccessors.csproj", "{8387DDAE-98A6-4C76-82D5-7181B41FB227}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessors", "DataAccessors\DataAccessors.csproj", "{8387DDAE-98A6-4C76-82D5-7181B41FB227}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engines", "Engines\Engines.csproj", "{C2547844-AC26-47A7-93D7-FF91F14EEA7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engines", "Engines\Engines.csproj", "{C2547844-AC26-47A7-93D7-FF91F14EEA7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{59543215-C19C-4B27-A605-CE0751536F36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{59543215-C19C-4B27-A605-CE0751536F36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B3857993-9867-4340-BCE5-3F435895F151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{849F0DBE-45C9-40A7-9F82-306FF619347E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{849F0DBE-45C9-40A7-9F82-306FF619347E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2C70F4D2-3A26-4628-9B5F-E3696D719CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "ViewModels\ViewModels.csproj", "{2C70F4D2-3A26-4628-9B5F-E3696D719CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionModels", "ActionModels\ActionModels.csproj", "{F1D41DB7-5F71-4B32-A2DC-8E17703A3FAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActionModels", "ActionModels\ActionModels.csproj", "{F1D41DB7-5F71-4B32-A2DC-8E17703A3FAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{96320160-23EB-4A91-BFAC-39DF72B03036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModels", "DataModels\DataModels.csproj", "{96320160-23EB-4A91-BFAC-39DF72B03036}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbModels", "DbModels\DbModels.csproj", "{D01CABE0-52EE-414B-9C50-F149E05CC181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbModels", "DbModels\DbModels.csproj", "{D01CABE0-52EE-414B-9C50-F149E05CC181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{A66705EA-4383-4488-932C-5D1526CD1A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{A66705EA-4383-4488-932C-5D1526CD1A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Misc", "Misc\Misc.csproj", "{7339EF0A-F894-4722-8270-45DC0E2D5516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{A66705EA-4383-4488-932C-5D1526CD1A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A66705EA-4383-4488-932C-5D1526CD1A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A66705EA-4383-4488-932C-5D1526CD1A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +94,6 @@ Global
 		{96320160-23EB-4A91-BFAC-39DF72B03036} = {B3857993-9867-4340-BCE5-3F435895F151}
 		{D01CABE0-52EE-414B-9C50-F149E05CC181} = {B3857993-9867-4340-BCE5-3F435895F151}
 		{A66705EA-4383-4488-932C-5D1526CD1A95} = {B3857993-9867-4340-BCE5-3F435895F151}
+		{7339EF0A-F894-4722-8270-45DC0E2D5516} = {B3857993-9867-4340-BCE5-3F435895F151}
 	EndGlobalSection
 EndGlobal
