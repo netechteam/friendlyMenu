@@ -1,7 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AddressDM.cs" />
+    <Compile Remove="DishIngredientDM.cs" />
+    <Compile Remove="IngredientTypeDM.cs" />
+    <Compile Remove="MenuCategoryDM.cs" />
+    <Compile Remove="RestaurantContactDM.cs" />
+    <Compile Remove="RestaurantDM.cs" />
+    <Compile Remove="RestaurantHourDM.cs" />
+    <Compile Remove="SharedHour.cs" />
+  </ItemGroup>
 
 </Project>

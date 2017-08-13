@@ -5,15 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataAccessors\IAddressDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IDishDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IDishIngredientDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IIngredientDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IIngredientTypeDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IRestaurantContactDataAccessor.cs" />
+    <Compile Remove="DataAccessors\IRestaurantHourDataAccessor.cs" />
+    <Compile Remove="DataAccessors\ISharedHourDataAccessor.cs" />
     <Compile Remove="Managers\IAddressManager.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Engines\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="DataAccessors\IDishDataAccessor.cs" />
   </ItemGroup>
 
   <ItemGroup>

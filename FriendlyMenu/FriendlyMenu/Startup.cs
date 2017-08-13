@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Managers;
+//using Managers;
 using Misc;
 
 namespace FriendlyMenu
@@ -38,13 +38,13 @@ namespace FriendlyMenu
         public void ConfigureServices(IServiceCollection services)
         {
             // Managers
-            services.AddScoped<IRestaurantManager, RestaurantManager>();
+            //services.AddScoped<IRestaurantManager, RestaurantManager>();
 
             // DataAccessors
             services.AddScoped<IRestaurantDataAccessor, RestaurantDataAccessor>();
-            services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
-            services.AddScoped<IDishDataAccessor, DishDataAccessor>();
-            services.AddScoped<IDishIngredientDataAccessor, DishIngredientDataAccessor>();
+            //services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
+            //services.AddScoped<IDishDataAccessor, DishDataAccessor>();
+            //services.AddScoped<IDishIngredientDataAccessor, DishIngredientDataAccessor>();
             // Services
 
             // Add framework services.

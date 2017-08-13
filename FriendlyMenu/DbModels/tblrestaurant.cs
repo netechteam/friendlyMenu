@@ -10,7 +10,5 @@ namespace DbModels
         public int Id { get; set; }
         [Column("restaurantname")]
         public string RestaurantName { get; set; }
-        [Column("restaurantalias")]
-        public string RestaurantAlias { get; set; }
     }
 }

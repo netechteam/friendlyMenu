@@ -15,13 +15,17 @@ namespace DbModels
         [Column("description")]
         public string Description { get; set; }
         [Column("menucategoryid")]
-        public int [] MenuCategoryId { get; set; }
+        public int MenuCategoryId { get; set; }
+        [Column("pricebreakfast")]
+        public double PriceBreakfast { get; set; }
         [Column("pricelunch")]
         public double PriceLunch { get; set; }
         [Column("pricecombo")]
         public double PriceCombo { get; set; }
         [Column("pricedinner")]
         public double PriceDinner { get; set; }
+        [Column("isbreakfast")]
+        public double IsBreakfast { get; set; }
         [Column("islunch")]
         public double IsLunch { get; set; }
         [Column("iscombo")]

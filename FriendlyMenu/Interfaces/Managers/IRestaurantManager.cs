@@ -10,6 +10,7 @@ namespace Interfaces.Managers
     public interface IRestaurantManager
     {
         Task<RestaurantVM> GetRestaurant(int restaurantId);
-        Task AddDishIngredientArray(DishIngredientDM dishIngredientArray);
+        Task<List<DishVM>> GetAllDishes(int restaurantId);
+        //Task AddDishIngredientArray(DishIngredientDM dishIngredientArray);
     }
 }

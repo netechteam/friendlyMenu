@@ -10,8 +10,10 @@ namespace DbModels
         public int Id { get; set; }
         [Column("restaurantid")]
         public int RestaurantId { get; set; }
-        [Column("streetname")]
-        public string StreetName { get; set; }
+        [Column("street1")]
+        public string Street1 { get; set; }
+        [Column("street2")]
+        public string Street2 { get; set; }
         [Column("cityname")]
         public string CityName { get; set; }
         [Column("statename")]

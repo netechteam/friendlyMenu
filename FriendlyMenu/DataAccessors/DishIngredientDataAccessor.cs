@@ -21,34 +21,35 @@ namespace DataAccessors
 
         public async Task<DishIngredientDM> GetDishIngredient(int id)
         {
-            var dishIngredient = await _databaseContext.DishIngredient.FirstOrDefaultAsync(x => x.Id == id);
-            return BuildDishIngredientDM(dishIngredient);
+            //var dishIngredient = await _databaseContext.DishIngredient.FirstOrDefaultAsync(x => x.Id == id);
+            //return BuildDishIngredientDM(dishIngredient);
+            return null;
         }
 
-        private DishIngredientDM BuildDishIngredientDM(tblDishIngredient dishIngredient)
+        private DishIngredientDM BuildDishIngredientDM(tblDishIngredients dishIngredient)
         {
-            if (dishIngredient == null)
-                return null;
-            return new DishIngredientDM
-            {
-                Id = dishIngredient.Id,
-                RestaurantId = dishIngredient.RestaurantId,
-                DishName = dishIngredient.DishName,
-                IngredientId = dishIngredient.IngredientId
-            };
+            //if (dishIngredient == null)
+            //    return null;
+            //return new DishIngredientDM
+            //{
+            //    Id = dishIngredient.Id,
+            //    RestaurantId = dishIngredient.RestaurantId,
+            //    DishName = dishIngredient.DishName,
+            //    IngredientId = dishIngredient.IngredientId
+            //};
 
         }
 
         public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
         {
-            var dataModel = new tblDishIngredient
-            {
-                Id = dishIngredientArray.Id,
-                IngredientId = dishIngredientArray.IngredientId.ToArray(),
-                DishName = dishIngredientArray.DishName
-            };
+            //var dataModel = new tblDishIngredient
+            //{
+            //    Id = dishIngredientArray.Id,
+            //    IngredientId = dishIngredientArray.IngredientId.ToArray(),
+            //    DishName = dishIngredientArray.DishName
+            //};
 
-            _databaseContext.DishIngredient.Add(dataModel);
+            //_databaseContext.DishIngredient.Add(dataModel);
 
             _databaseContext.SaveChanges();
         }
