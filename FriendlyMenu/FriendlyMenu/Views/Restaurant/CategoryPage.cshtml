@@ -1,0 +1,26 @@
+﻿@using ViewModels
+@model ViewModels.CategoryPageVM
+
+
+<div id="menuPage">
+    <h2>@Model.CategoryName</h2>
+    
+    @{ int i = 0;}
+    @foreach(var dish in Model.Dishes)
+    {
+        if (i % 2 == 0)
+        {
+            <p style="color: crimson">Dish Name: @dish.DishName</p>
+            <p style="color: crimson">Ingredients: @dish.Ingredients</p>
+        }
+        else
+        {
+            <p style="color: #008b8b">Dish Name: @dish.DishName</p>
+            <p style="color: #008b8b">Ingredients: @dish.Ingredients</p>
+        }
+
+        i++;
+
+    }
+
+</div>

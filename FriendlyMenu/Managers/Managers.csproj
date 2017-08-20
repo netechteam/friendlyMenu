@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Compile Remove="AddressManager.cs" />
-    <Compile Remove="RestaurantManager.cs" />
   </ItemGroup>
 
   <ItemGroup>

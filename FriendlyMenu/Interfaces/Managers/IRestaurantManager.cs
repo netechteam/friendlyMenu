@@ -9,8 +9,7 @@ namespace Interfaces.Managers
 {
     public interface IRestaurantManager
     {
-        Task<RestaurantVM> GetRestaurant(int restaurantId);
-        Task<List<DishVM>> GetAllDishes(int restaurantId);
-        //Task AddDishIngredientArray(DishIngredientDM dishIngredientArray);
+        Task<CategoryPageVM> GetDishesByCategory(int categoryId, int restaurantId);
+        
     }
 }

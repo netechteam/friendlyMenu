@@ -11,7 +11,7 @@ namespace DbModels
         public int Id { get; set; }
         [Column("dishid")]
         public int DishId{ get; set; }
-        [Column("ingredientidlist")]
-        public int[] IngredientIds { get; set; }
+        [Column("ingredientid")]
+        public int IngredientId { get; set; }
     }
 }

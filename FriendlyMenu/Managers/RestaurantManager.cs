@@ -15,59 +15,45 @@ namespace Managers
         //private readonly IAddressDataAccessor _addressDataAccessor;
         //private readonly IDishIngredientDataAccessor _dishIngredientDataAccessor;
 
-        //public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor, IAddressDataAccessor addressDataAccessor,
-        //    IDishIngredientDataAccessor dishIngredientDataAccessor)
-        //{
-        //    _restaurantDataAccessor = restaurantDataAccessor;
-        //    _addressDataAccessor = addressDataAccessor;
-        //    _dishIngredientDataAccessor = dishIngredientDataAccessor;
-        //}
-
-        //public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
-        //{
-        //    await _dishIngredientDataAccessor.AddDishIngredientArray(dishIngredientArray);
-        //}
-
-        public async Task<List<DishDM>> GetRestaurant(int restaurantId)
+        public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor)
         {
-            //var restaurantDataModel = await _restaurantDataAccessor.GetRestaurant(restaurantId);
-            //var addressDataModel = await _addressDataAccessor.GetAddress(restaurantId);
-            //var addressVM = BuildAddressVM(addressDataModel);
-            //var dishIngredient = await _dishIngredientDataAccessor.GetDishIngredient(1);
-            var dishes = await _restaurantDataAccessor.GetAllDishes(1);
-
-            return  dishes;
+            _restaurantDataAccessor = restaurantDataAccessor;
+           
         }
 
-        //private AddressVM BuildAddressVM(AddressDM dataModel)
-        //{
-        //    if (dataModel == null)
-        //        return null;
+        public async Task<CategoryPageVM> GetDishesByCategory(int categoryId, int restaurantId)
+        { 
 
-        //    return new AddressVM
-        //    {
-        //        Id = dataModel.Id,
-        //        RestaurantId = dataModel.RestaurantId,
-        //        StreetName = dataModel.StreetName,
-        //        CityName = dataModel.CityName,
-        //        StateName = dataModel.StateName,
-        //        StateAbbr = dataModel.StateAbbr,
-        //        Zip = dataModel.Zip,
-        //        Country = dataModel.Country,
-        //        CountryAbbr = dataModel.CountryAbbr
-        //    };
-        //}
+            var categoryDishes = await _restaurantDataAccessor.GetDishesByCategory(categoryId, restaurantId);
 
-        //private RestaurantVM BuildRestaurantVM(RestaurantDM dataModel)
-        //{
-        //    if (dataModel == null)
-        //        return null;
+            
+            var categoryPage = new CategoryPageVM
+            {
+                CategoryName = categoryDishes.CategoryName,
+                Dishes = categoryDishes.DishSummaryDM.Select( x => new DishSummaryVM
+                {
+                    Id = x.Id,
+                    CategoryId = x.CategoryId,
+                    Description = x.Description,
+                    DishName = x.DishName,
+                    IsBreakfast = x.IsBreakfast,
+                    IsCombo = x.IsCombo,
+                    IsLunch = x.IsLunch,
+                    IsSpicy = x.IsSpicy,
+                    PriceBreakfast = x.PriceBreakfast,
+                    PriceCombo = x.PriceCombo,
+                    PriceDinner = x.PriceDinner,
+                    PriceLunch = x.PriceLunch,
+                    RestaurantId = x.RestaurantId,
+                    Ingredients = string.Join(", ", x.Ingredients.Select(y => y.IngredientName))
+                    
+                }).ToList()
+            };
 
-        //    return new RestaurantVM
-        //    {
-        //        Id = dataModel.Id,
-        //        RestaurantName = dataModel.RestaurantName
-        //    };
-        //}
+
+            return categoryPage;
+        }
+
+  
     }
 }

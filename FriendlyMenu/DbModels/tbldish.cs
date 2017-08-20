@@ -14,8 +14,8 @@ namespace DbModels
         public string DishName { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("menucategoryid")]
-        public int MenuCategoryId { get; set; }
+        [Column("categoryid")]
+        public int CategoryId { get; set; }
         [Column("pricebreakfast")]
         public double PriceBreakfast { get; set; }
         [Column("pricelunch")]
@@ -25,12 +25,12 @@ namespace DbModels
         [Column("pricedinner")]
         public double PriceDinner { get; set; }
         [Column("isbreakfast")]
-        public double IsBreakfast { get; set; }
+        public bool IsBreakfast { get; set; }
         [Column("islunch")]
-        public double IsLunch { get; set; }
+        public bool IsLunch { get; set; }
         [Column("iscombo")]
-        public double IsCombo { get; set; }
+        public bool IsCombo { get; set; }
         [Column("isspicy")]
-        public double IsSpicy{ get; set; }
+        public bool IsSpicy{ get; set; }
     }
 }

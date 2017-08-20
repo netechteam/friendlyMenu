@@ -2,6 +2,7 @@
 using Entities;
 using Interfaces.DataAccessors;
 using Interfaces.Managers;
+using Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -38,13 +39,11 @@ namespace FriendlyMenu
         public void ConfigureServices(IServiceCollection services)
         {
             // Managers
-            //services.AddScoped<IRestaurantManager, RestaurantManager>();
+            services.AddScoped<IRestaurantManager, RestaurantManager>();
 
             // DataAccessors
             services.AddScoped<IRestaurantDataAccessor, RestaurantDataAccessor>();
-            //services.AddScoped<IAddressDataAccessor, AddressDataAccessor>();
-            //services.AddScoped<IDishDataAccessor, DishDataAccessor>();
-            //services.AddScoped<IDishIngredientDataAccessor, DishIngredientDataAccessor>();
+          
             // Services
 
             // Add framework services.

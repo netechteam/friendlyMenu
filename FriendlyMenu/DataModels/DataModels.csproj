@@ -15,4 +15,8 @@
     <Compile Remove="SharedHour.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

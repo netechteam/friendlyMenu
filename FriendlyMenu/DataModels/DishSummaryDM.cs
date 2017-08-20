@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace ViewModels
+namespace DataModels
 {
-    public class DishSummaryVM
+    public class DishSummaryDM
     {
         public int Id { get; set; }
         public int RestaurantId { get; set; }
@@ -19,8 +17,6 @@ namespace ViewModels
         public bool IsLunch { get; set; }
         public bool IsCombo { get; set; }
         public bool IsSpicy { get; set; }
-        public string Ingredients { get; set; }
-        public string ImageUrl { get; set; }
-        //todo add three more prices and the flags
+        public List<IngredientDM> Ingredients { get; set; } 
     }
 }

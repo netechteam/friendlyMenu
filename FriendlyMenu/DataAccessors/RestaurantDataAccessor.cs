@@ -7,6 +7,7 @@ using Entities;
 using Interfaces.DataAccessors;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Remotion.Linq.Clauses;
 
 namespace DataAccessors
 {
@@ -19,44 +20,46 @@ namespace DataAccessors
             _databaseContext = databaseContext;
         }
 
-        public async Task<List<DishDM>> GetAllDishes(int restaurantId)
-        {
-            return (from r in _databaseContext.Restaurant
-                    join d in _databaseContext.Dish on r.Id equals d.RestaurantId
-                    join di in _databaseContext.DishIngredients on d.Id equals di.DishId
-                    where r.Id == restaurantId select new DishDM
-                    {
-                        Id = di.Id,
-                        RestaurantId = d.RestaurantId,
-                        MenuCategoryId = d.MenuCategoryId,
-                        DishName = d.DishName,
-                        Description = d.Description,
-                        PriceBreakfast = d.PriceBreakfast,
-                        PriceLunch = d.PriceLunch,
-                        PriceCombo = d.PriceCombo,
-                        PriceDinner = d.PriceDinner,
-                        IsBreakfast = d.IsBreakfast,
-                        IsLunch = d.IsLunch,
-                        IsCombo = d.IsCombo,
-                        IsSpicy = d.IsSpicy,
-                        Ingredients = _databaseContext.Ingredient.Select(x => new IngredientDM
-                        {
-                            Id = x.Id,
-                            IngredientName = x.IngredientName,
-                            IngredientTypeId = x.IngredientTypeId
-                        }).ToList()
-                    }
-                ).ToList();
-        }
 
-        //public List<IngredientDM> SetDishIngredients(int[] ingredientIds)
-        //{
-        //    return _databaseContext.Ingredient.Select(x => new IngredientDM{
-        //            Id = x.Id,
-        //            IngredientName = x.IngredientName,
-        //            IngredientTypeId = x.IngredientTypeId
-        //    }).ToList();
-        //}
+
+        public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
+        {
+            var tempt = _databaseContext.Dish.ToList();
+            var allDBDishes = _databaseContext.Dish.Where(x => x.RestaurantId == 1 && x.CategoryId == categoryId).Select(y => new DishSummaryDM
+            {
+                Id = y.Id,
+                RestaurantId = y.RestaurantId,
+                DishName = y.DishName,
+                Description = y.Description,
+                CategoryId = y.CategoryId,
+                IsBreakfast = y.IsBreakfast,
+                IsCombo = y.IsCombo,
+                IsLunch = y.IsLunch,
+                IsSpicy = y.IsSpicy,
+                PriceBreakfast = y.PriceBreakfast,
+                PriceCombo = y.PriceCombo,
+                PriceDinner = y.PriceDinner,
+                PriceLunch = y.PriceLunch,
+                Ingredients = (from di in _databaseContext.DishIngredients
+                               join i in _databaseContext.Ingredient on di.IngredientId equals i.Id
+                               where di.DishId == y.Id
+                               select new IngredientDM
+                               {
+                                   Id = di.IngredientId,
+                                   IngredientName = i.IngredientName
+                               }).ToList()
+            }).ToList();
+
+
+            var categoryName = (from x in _databaseContext.Category where x.Id == categoryId select x.CategoryName).First();
+            var categoryDishes = new CategoryDishesDM
+            {
+                CategoryName = categoryName,
+                DishSummaryDM = allDBDishes
+
+            };
+            return categoryDishes;
+        }
 
         public void GetDishesByCategoryId(int categoryId)
         {
