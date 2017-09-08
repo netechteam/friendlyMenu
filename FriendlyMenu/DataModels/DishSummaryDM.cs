@@ -17,6 +17,7 @@ namespace DataModels
         public bool IsLunch { get; set; }
         public bool IsCombo { get; set; }
         public bool IsSpicy { get; set; }
+        public string ImageUrl { get; set; }
         public List<IngredientDM> Ingredients { get; set; } 
     }
 }

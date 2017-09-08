@@ -17,5 +17,7 @@ namespace Entities
         public DbSet<tblSharedHour> SharedHour { get; set; }
         public DbSet<tblRestaurantContact> RestaurantContact { get; set; }
         public DbSet<tblRestaurantHour> RestaurantHour { get; set; }
+        public DbSet<tblDishImageSize> DishImageSize { get; set; }
+        public DbSet<tblDishImage> DishImage { get; set; }
     }
 }

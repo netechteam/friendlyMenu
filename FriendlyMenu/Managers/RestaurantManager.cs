@@ -45,8 +45,8 @@ namespace Managers
                     PriceDinner = x.PriceDinner,
                     PriceLunch = x.PriceLunch,
                     RestaurantId = x.RestaurantId,
-                    Ingredients = string.Join(", ", x.Ingredients.Select(y => y.IngredientName))
-                    
+                    Ingredients = string.Join(", ", x.Ingredients.Select(y => y.IngredientName)),
+                    ImageUrl = "/Images/dishImages/ChinaWall/" + x.ImageUrl
                 }).ToList()
             };
 

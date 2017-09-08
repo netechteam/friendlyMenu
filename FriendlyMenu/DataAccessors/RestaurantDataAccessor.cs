@@ -24,7 +24,6 @@ namespace DataAccessors
 
         public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
         {
-            var tempt = _databaseContext.Dish.ToList();
             var allDBDishes = _databaseContext.Dish.Where(x => x.RestaurantId == 1 && x.CategoryId == categoryId).Select(y => new DishSummaryDM
             {
                 Id = y.Id,
@@ -47,9 +46,11 @@ namespace DataAccessors
                                {
                                    Id = di.IngredientId,
                                    IngredientName = i.IngredientName
-                               }).ToList()
+                               }).ToList(), 
+                ImageUrl = (from image in _databaseContext.DishImage
+                              join d in _databaseContext.Dish on image.DishId equals d.Id
+                              where  image.DishId == y.Id select image.ImageLocation).FirstOrDefault()
             }).ToList();
-
 
             var categoryName = (from x in _databaseContext.Category where x.Id == categoryId select x.CategoryName).First();
             var categoryDishes = new CategoryDishesDM
