@@ -2,7 +2,7 @@
 
 namespace DataModels
 {
-    public class SharedHour 
+    public class SharedHourDM 
     {
         public int Id { get; set; }
         public DateTime OpenTime { get; set; }

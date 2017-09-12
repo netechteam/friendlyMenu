@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AddressDataAccessor.cs" />
+    <Compile Remove="DishDataAccessor.cs" />
+    <Compile Remove="DishIngredientDataAccessor.cs" />
+    <Compile Remove="IngredientDataAccessor.cs" />
+    <Compile Remove="IngredientTypeDataAccessor.cs" />
+    <Compile Remove="RestaurantContactDataAccessor.cs" />
+    <Compile Remove="RestaurantHourDataAccessor.cs" />
+    <Compile Remove="SharedHourDataAccessor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
   </ItemGroup>
 

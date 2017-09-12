@@ -9,6 +9,11 @@ namespace Interfaces.DataAccessors
 {
     public interface IRestaurantDataAccessor
     {
-        Task<RestaurantDM> GetRestaurant(int restaurantId);
+        //Task<RestaurantDM> GetRestaurant(int restaurantId);
+        Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId);
+
+        //void GetDishesByCategoryId(int categoryId);
+        //void GetDishById(int dishId);
     }
+
 }

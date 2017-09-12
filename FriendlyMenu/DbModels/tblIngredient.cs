@@ -12,6 +12,6 @@ namespace DbModels
         [Column("ingredienttypeid")]
         public int IngredientTypeId { get; set; }
         [Column("ingredientname")]
-        public string DishName { get; set; }
+        public string IngredientName { get; set; }
     }
 }

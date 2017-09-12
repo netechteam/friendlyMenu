@@ -4,67 +4,56 @@ using DataModels;
 using Interfaces.DataAccessors;
 using Interfaces.Managers;
 using ViewModels;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Managers
 {
     public class RestaurantManager : IRestaurantManager
     {
         private readonly IRestaurantDataAccessor _restaurantDataAccessor;
-        private readonly IAddressDataAccessor _addressDataAccessor;
-        private readonly IDishIngredientDataAccessor _dishIngredientDataAccessor;
+        //private readonly IAddressDataAccessor _addressDataAccessor;
+        //private readonly IDishIngredientDataAccessor _dishIngredientDataAccessor;
 
-        public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor, IAddressDataAccessor addressDataAccessor,
-            IDishIngredientDataAccessor dishIngredientDataAccessor)
+        public RestaurantManager(IRestaurantDataAccessor restaurantDataAccessor)
         {
             _restaurantDataAccessor = restaurantDataAccessor;
-            _addressDataAccessor = addressDataAccessor;
-            _dishIngredientDataAccessor = dishIngredientDataAccessor;
+           
         }
 
-        public async Task AddDishIngredientArray(DishIngredientDM dishIngredientArray)
-        {
-            await _dishIngredientDataAccessor.AddDishIngredientArray(dishIngredientArray);
-        }
+        public async Task<CategoryPageVM> GetDishesByCategory(int categoryId, int restaurantId)
+        { 
 
-        public async Task<RestaurantVM> GetRestaurant(int restaurantId)
-        {
-            var restaurantDataModel  =  await _restaurantDataAccessor.GetRestaurant(restaurantId);
-            //var addressDataModel = await _addressDataAccessor.GetAddress(restaurantId);
-            //var addressVM = BuildAddressVM(addressDataModel);
-            //var dishIngredient = await _dishIngredientDataAccessor.GetDishIngredient(1);
+            var categoryDishes = await _restaurantDataAccessor.GetDishesByCategory(categoryId, restaurantId);
 
-            return BuildRestaurantVM(restaurantDataModel);
-        }
-
-        private AddressVM BuildAddressVM(AddressDM dataModel)
-        {
-            if (dataModel == null)
-                return null;
-
-            return new AddressVM
+            
+            var categoryPage = new CategoryPageVM
             {
-                Id = dataModel.Id,
-                RestaurantId = dataModel.RestaurantId,
-                StreetName = dataModel.StreetName,
-                CityName = dataModel.CityName,
-                StateName = dataModel.StateName,
-                StateAbbr = dataModel.StateAbbr,
-                Zip = dataModel.Zip,
-                Country = dataModel.Country,
-                CountryAbbr = dataModel.CountryAbbr
+                CategoryName = categoryDishes.CategoryName,
+                Dishes = categoryDishes.DishSummaryDM.Select( x => new DishSummaryVM
+                {
+                    DishId = x.Id,
+                    CategoryId = x.CategoryId,
+                    Description = x.Description,
+                    DishName = x.DishName,
+                    IsBreakfast = x.IsBreakfast,
+                    IsCombo = x.IsCombo,
+                    IsLunch = x.IsLunch,
+                    IsSpicy = x.IsSpicy,
+                    BreakfastPrice = x.PriceBreakfast,
+                    ComboPrice = x.PriceCombo,
+                    DinnerPrice = x.PriceDinner,
+                    LunchPrice = x.PriceLunch,
+                    RestaurantId = x.RestaurantId,
+                    Ingredients = string.Join(", ", x.Ingredients.Select(y => y.IngredientName)),
+                    ImageUrl = "/Images/dishImages/ChinaWall/" + x.ImageUrl
+                }).ToList()
             };
+
+
+            return categoryPage;
         }
 
-        private RestaurantVM BuildRestaurantVM(RestaurantDM dataModel)
-        {
-            if (dataModel == null)
-                return null;
-
-            return new RestaurantVM
-            {
-                Id = dataModel.Id,
-                RestaurantName = dataModel.RestaurantName
-            };
-        }
+  
     }
 }

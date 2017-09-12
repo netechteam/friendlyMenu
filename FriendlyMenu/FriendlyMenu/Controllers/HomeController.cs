@@ -17,7 +17,7 @@ namespace FriendlyMenu.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var restaurant = await _restaurantManager.GetRestaurant(1);
+            //var restaurant = await _restaurantManager.GetRestaurant(1);
 
             return View();
         }
