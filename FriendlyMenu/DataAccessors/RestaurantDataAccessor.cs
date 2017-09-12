@@ -24,7 +24,7 @@ namespace DataAccessors
 
         public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
         {
-            var allDBDishes = _databaseContext.Dish.Where(x => x.RestaurantId == 1 && x.CategoryId == categoryId).Select(y => new DishSummaryDM
+            var allDBDishes = _databaseContext.Dish.Where(x => x.RestaurantId == restaurantId && x.CategoryId == categoryId).Select(y => new DishSummaryDM
             {
                 Id = y.Id,
                 RestaurantId = y.RestaurantId,
@@ -61,36 +61,6 @@ namespace DataAccessors
             };
             return categoryDishes;
         }
-
-        public void GetDishesByCategoryId(int categoryId)
-        {
-
-        }
-
-        public void GetDishById(int categoryId)
-        {
-
-        }
-
-
-        //public async Task<RestaurantDM> GetRestaurant(int restaurantId)
-        //{
-        //    var restaurant = await _databaseContext.Restaurant.FirstOrDefaultAsync(x => x.Id == restaurantId);
-
-        //    return BuildRestaurantDM(restaurant);
-        //}
-
-        //private RestaurantDM BuildRestaurantDM(tblRestaurant restaurant)
-        //{
-        //    if (restaurant == null)
-        //        return null;
-
-        //    return new RestaurantDM
-        //    {
-        //        Id = restaurant.Id,
-        //        RestaurantName = restaurant.RestaurantName,
-        //         RestaurantAlias = restaurant.RestaurantAlias
-        //    };
-        //}
+        
     }
 }

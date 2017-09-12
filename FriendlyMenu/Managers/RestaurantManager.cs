@@ -32,7 +32,7 @@ namespace Managers
                 CategoryName = categoryDishes.CategoryName,
                 Dishes = categoryDishes.DishSummaryDM.Select( x => new DishSummaryVM
                 {
-                    Id = x.Id,
+                    DishId = x.Id,
                     CategoryId = x.CategoryId,
                     Description = x.Description,
                     DishName = x.DishName,
@@ -40,10 +40,10 @@ namespace Managers
                     IsCombo = x.IsCombo,
                     IsLunch = x.IsLunch,
                     IsSpicy = x.IsSpicy,
-                    PriceBreakfast = x.PriceBreakfast,
-                    PriceCombo = x.PriceCombo,
-                    PriceDinner = x.PriceDinner,
-                    PriceLunch = x.PriceLunch,
+                    BreakfastPrice = x.PriceBreakfast,
+                    ComboPrice = x.PriceCombo,
+                    DinnerPrice = x.PriceDinner,
+                    LunchPrice = x.PriceLunch,
                     RestaurantId = x.RestaurantId,
                     Ingredients = string.Join(", ", x.Ingredients.Select(y => y.IngredientName)),
                     ImageUrl = "/Images/dishImages/ChinaWall/" + x.ImageUrl
