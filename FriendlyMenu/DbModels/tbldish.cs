@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
@@ -6,16 +9,22 @@ namespace DbModels
     [Table("dish")]
     public class tblDish
     {
-        [Column("id")]
-        public int Id { get; set; }
+        //public tbldish()
+        //{
+        //    this.tblingredients = new HashSet<tblIngredient>();
+        //}
+
+        [Key]
+        [Column("ixdish")]
+        public int ixDish { get; set; }
         [Column("restaurantid")]
-        public int RestaurantId { get; set; }
+        public int restaurantId { get; set; }
         [Column("dishname")]
         public string DishName { get; set; }
         [Column("description")]
         public string Description { get; set; }
         [Column("categoryid")]
-        public int CategoryId { get; set; }
+        public int ixCategoryId { get; set; }
         [Column("pricebreakfast")]
         public double PriceBreakfast { get; set; }
         [Column("pricelunch")]
@@ -32,5 +41,9 @@ namespace DbModels
         public bool IsCombo { get; set; }
         [Column("isspicy")]
         public bool IsSpicy{ get; set; }
+
+        //public virtual ICollection<tblIngredient> tblingredients { get; set; }
+        public virtual ICollection<tblDishIngredient> dishIngredients { get; set; }
+        public virtual ICollection<tblDishImage> dishImages { get; set; }
     }
 }

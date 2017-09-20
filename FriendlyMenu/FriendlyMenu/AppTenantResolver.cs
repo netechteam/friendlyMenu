@@ -24,6 +24,8 @@ namespace FriendlyMenu
         //    }
         //});
 
+        // http://benfoster.io/blog/asp-net-5-multitenancy
+
         private readonly IEnumerable<AppTenant> tenants;
 
         public AppTenantResolver(IOptions<MultitenancyOptions> options)

@@ -7,60 +7,117 @@ using Entities;
 using Interfaces.DataAccessors;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using Extensions;
 using Remotion.Linq.Clauses;
 
 namespace DataAccessors
 {
     public class RestaurantDataAccessor : IRestaurantDataAccessor
     {
-        private readonly DatabaseContext _databaseContext;
+        private readonly DatabaseContext _context;
 
-        public RestaurantDataAccessor(DatabaseContext databaseContext)
+        public RestaurantDataAccessor(DatabaseContext context)
         {
-            _databaseContext = databaseContext;
+            _context = context;
         }
-
-
 
         public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
         {
-            var allDBDishes = _databaseContext.Dish.Where(x => x.RestaurantId == restaurantId && x.CategoryId == categoryId).Select(y => new DishSummaryDM
-            {
-                Id = y.Id,
-                RestaurantId = y.RestaurantId,
-                DishName = y.DishName,
-                Description = y.Description,
-                CategoryId = y.CategoryId,
-                IsBreakfast = y.IsBreakfast,
-                IsCombo = y.IsCombo,
-                IsLunch = y.IsLunch,
-                IsSpicy = y.IsSpicy,
-                PriceBreakfast = y.PriceBreakfast,
-                PriceCombo = y.PriceCombo,
-                PriceDinner = y.PriceDinner,
-                PriceLunch = y.PriceLunch,
-                Ingredients = (from di in _databaseContext.DishIngredients
-                               join i in _databaseContext.Ingredient on di.IngredientId equals i.Id
-                               where di.DishId == y.Id
-                               select new IngredientDM
-                               {
-                                   Id = di.IngredientId,
-                                   IngredientName = i.IngredientName
-                               }).ToList(), 
-                ImageUrl = (from image in _databaseContext.DishImage
-                              join d in _databaseContext.Dish on image.DishId equals d.Id
-                              where  image.DishId == y.Id select image.ImageLocation).FirstOrDefault()
-            }).ToList();
+            // get category
+            var getCategoryTask = (from cat in _context.tblcategories where cat.ixCategoryId == categoryId select cat).FirstAsync();
 
-            var categoryName = (from x in _databaseContext.Category where x.Id == categoryId select x.CategoryName).First();
-            var categoryDishes = new CategoryDishesDM
-            {
-                CategoryName = categoryName,
-                DishSummaryDM = allDBDishes
+            // get dishes
+            var getDishesTask = (from dish in _context.tblDishes
+                                .Include(x => x.dishIngredients).ThenInclude(x => x.tblIngredient)
+                                .Include(x => x.dishImages)
+                                where dish.ixCategoryId == categoryId && dish.restaurantId == restaurantId
+                                select dish).ToListAsync();
 
+            var category = await getCategoryTask;
+            if (category == null)
+                throw new InvalidOperationException("Invalid categoryId: " + categoryId);
+
+            var dishes = await getDishesTask;
+            var dishSummaries = dishes.EmptyIfNull().Select(GetDishSummaryDM).ToList();
+           
+            return new CategoryDishesDM
+            {
+                CategoryId = category.ixCategoryId,
+                CategoryName = category.sCategoryName,
+                DishSummaries = dishSummaries
             };
-            return categoryDishes;
         }
+
+        private static DishSummaryDM GetDishSummaryDM(tblDish dish)
+        {
+            if (dish == null)
+                return null;
+
+            var imageUrl = dish.dishImages.EmptyIfNull().Any() ? dish.dishImages.First().ImageLocation : null;
+
+            return new DishSummaryDM
+            {
+                DishId = dish.ixDish,
+                DishName = dish.DishName,
+                Description = dish.Description,
+                //CategoryId = dish.ixCategoryId,
+                IsBreakfast = dish.IsBreakfast,
+                IsCombo = dish.IsCombo,
+                IsLunch = dish.IsLunch,
+                IsSpicy = dish.IsSpicy,
+                BreakfastPrice = dish.PriceBreakfast,
+                ComboPrice = dish.PriceCombo,
+                DinnerPrice = dish.PriceDinner,
+                LunchPrice = dish.PriceLunch,
+                Ingredients = dish.dishIngredients.Select(x => new IngredientDM
+                {
+                    IngredientId = x.tblIngredient.ixIngredient,
+                    IngredientName = x.tblIngredient.sIngredientName
+                }).ToList(),
+                ImageUrl = imageUrl
+            };
+        }
+
+
+        //public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
+        //{
+        //    var allDBDishes = _context.tblDishes.Where(x => x.restaurantId == restaurantId && x.ixCategoryId == categoryId).Select(y => new DishSummaryDM
+        //    {
+        //        DishId = y.ixDish,
+        //        RestaurantId = y.restaurantId,
+        //        DishName = y.DishName,
+        //        Description = y.Description,
+        //        CategoryId = y.ixCategoryId,
+        //        IsBreakfast = y.IsBreakfast,
+        //        IsCombo = y.IsCombo,
+        //        IsLunch = y.IsLunch,
+        //        IsSpicy = y.IsSpicy,
+        //        BreakfastPrice = y.PriceBreakfast,
+        //        ComboPrice = y.PriceCombo,
+        //        DinnerPrice = y.PriceDinner,
+        //        LunchPrice = y.PriceLunch,
+        //        Ingredients = (from di in _context.tblDishIngredients
+        //                       join i in _context.tblIngredients on di.ixIngredient equals i.ixIngredient
+        //                       where di.ixDish == y.ixDish
+        //                       select new IngredientDM
+        //                       {
+        //                           IngredientId = di.ixIngredient,
+        //                           IngredientName = i.sIngredientName
+        //                       }).ToList(), 
+        //        ImageUrl = (from image in _context.DishImage
+        //                      join d in _context.tblDishes on image.ixdish equals d.ixDish
+        //                      where  image.ixdish == y.ixDish select image.ImageLocation).FirstOrDefault()
+        //    }).ToList();
+
+        //    var categoryName = (from x in _context.tblcategories where x.ixCategoryId == categoryId select x.sCategoryName).First();
+        //    var categoryDishes = new CategoryDishesDM
+        //    {
+        //        CategoryName = categoryName,
+        //        DishSummaries = allDBDishes
+
+        //    };
+        //    return categoryDishes;
+        //}
         
     }
 }

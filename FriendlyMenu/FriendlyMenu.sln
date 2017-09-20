@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FriendlyMenu", "FriendlyMenu\FriendlyMenu.csproj", "{77BAE0CF-FAF7-4BFF-BA40-A961FD69992A}"
 EndProject
@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbModels", "DbModels\DbMode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{A66705EA-4383-4488-932C-5D1526CD1A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Misc", "Misc\Misc.csproj", "{7339EF0A-F894-4722-8270-45DC0E2D5516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Misc", "Misc\Misc.csproj", "{7339EF0A-F894-4722-8270-45DC0E2D5516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "EnumerableExtensions\Extensions.csproj", "{50E51771-B5AB-45EF-82F4-C95799C7570E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7339EF0A-F894-4722-8270-45DC0E2D5516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E51771-B5AB-45EF-82F4-C95799C7570E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E51771-B5AB-45EF-82F4-C95799C7570E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E51771-B5AB-45EF-82F4-C95799C7570E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E51771-B5AB-45EF-82F4-C95799C7570E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +101,9 @@ Global
 		{D01CABE0-52EE-414B-9C50-F149E05CC181} = {B3857993-9867-4340-BCE5-3F435895F151}
 		{A66705EA-4383-4488-932C-5D1526CD1A95} = {B3857993-9867-4340-BCE5-3F435895F151}
 		{7339EF0A-F894-4722-8270-45DC0E2D5516} = {B3857993-9867-4340-BCE5-3F435895F151}
+		{50E51771-B5AB-45EF-82F4-C95799C7570E} = {B3857993-9867-4340-BCE5-3F435895F151}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76CCCD7C-89F9-4E1C-8EF8-EEE7079EDDB9}
 	EndGlobalSection
 EndGlobal

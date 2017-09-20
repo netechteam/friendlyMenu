@@ -23,6 +23,7 @@
     <ProjectReference Include="..\DataModels\DataModels.csproj" />
     <ProjectReference Include="..\DbModels\DbModels.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\EnumerableExtensions\Extensions.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 

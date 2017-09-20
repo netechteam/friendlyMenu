@@ -6,7 +6,8 @@ namespace DataModels
 {
     public class CategoryDishesDM
     {
-        public List<DishSummaryDM> DishSummaryDM { get; set; }
+        public List<DishSummaryDM> DishSummaries { get; set; }
         public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
     }
 }

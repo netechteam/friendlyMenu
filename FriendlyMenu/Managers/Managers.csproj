@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ActionModels\ActionModels.csproj" />
     <ProjectReference Include="..\DataModels\DataModels.csproj" />
+    <ProjectReference Include="..\EnumerableExtensions\Extensions.csproj" />
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
     <ProjectReference Include="..\ViewModels\ViewModels.csproj" />

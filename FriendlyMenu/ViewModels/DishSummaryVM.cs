@@ -7,7 +7,6 @@ namespace ViewModels
     public class DishSummaryVM
     {
         public int DishId { get; set; }
-        public int RestaurantId { get; set; }
         public int CategoryId { get; set; }
         public string DishName { get; set; }
         public string Description { get; set; }
