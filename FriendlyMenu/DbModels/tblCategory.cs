@@ -4,13 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("category")]
+    [Table("tblcategory")]
     public class tblCategory
     {
         [Key]
-        [Column("id")]
+        [Column("category_ix")]
         public int ixCategoryId { get; set; }
-        [Column("categoryname")]
+        [Column("categoryname_s")]
         public string sCategoryName { get; set; }
+        [Column("restaurant_ix")]
+        public int RestaurantId{ get; set; }
     }
 }

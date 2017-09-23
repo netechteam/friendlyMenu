@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("sharedhour")]
+    [Table("tblsharedhour")]
     public class tblSharedHour
     {
-        [Column("id")]
+        [Column("sharedhour_ix")]
         public int Id { get; set; }
-        [Column("opentime")]
+        [Column("opentime_tm")]
         public DateTime OpenTime { get; set; }
-        [Column("closetime")]
+        [Column("closetime_tm")]
         public DateTime CloseTime { get; set; }
-        [Column("dayofweek")]
+        [Column("dayofweek_s")]
         public string DayOfWeek { get; set; }
 
     }

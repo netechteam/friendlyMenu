@@ -6,22 +6,21 @@ using System.Text;
 
 namespace DbModels
 {
-    [Table("dishimage")]
+    [Table("tbldishimage")]
     public class tblDishImage
     {
         [Key]
-        [Column("ixdishimage")]
+        [Column("dishimage_ix")]
         public int ixdishimage { get; set; }
-        [Column("ixdish")]
+        [Column("dish_ix")]
         public int ixdish { get; set; }
-
-        [Column("imagelocation")]
+        [Column("imagelocation_s")]
         public string ImageLocation { get; set; }
-        [Column("imagesizeid")]
+        [Column("dishimagesize_ix")]
         public int ImageSizeId { get; set; }
-        [Column("imageposition")]
+        [Column("imageposition_i")]
         public string ImagePosition { get; set; }
-        [Column("createdate")]
+        [Column("createdateutc_dt")]
         public DateTime CreateDate { get; set; }
 
         public tblDish tbldish{ get; set; }

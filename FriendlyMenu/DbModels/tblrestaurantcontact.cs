@@ -3,22 +3,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("restaurantcontact")]
+    [Table("tblrestaurantcontact")]
     public class tblRestaurantContact
     {
-        [Column("id")]
+        [Column("restaurantcontact_ix")]
         public int Id { get; set; }
-        [Column("restaurantid")]
+        [Column("restaurant_ix")]
         public int RestaurantId { get; set; }
-        [Column("staffname")]
+        [Column("staffname_s")]
         public string StaffName { get; set; }
-        [Column("phonemain")]
+        [Column("phonemain_s")]
         public string PhoneMain { get; set; }
-        [Column("phonealt")]
+        [Column("phonealt_s")]
         public string PhoneAlt { get; set; }
-        [Column("fax")]
+        [Column("fax_s")]
         public string Fax { get; set; }
-        [Column("email")]
+        [Column("email_s")]
         public string Email { get; set; }
     }
 }

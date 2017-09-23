@@ -3,28 +3,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("address")]
+    [Table("tbladdress")]
     public class tblAddress
     {
-        [Column("id")]
+        [Column("address_ix")]
         public int Id { get; set; }
-        [Column("restaurantid")]
+        [Column("restaurant_ix")]
         public int RestaurantId { get; set; }
-        [Column("street1")]
+        [Column("street1_s")]
         public string Street1 { get; set; }
-        [Column("street2")]
+        [Column("street2_s")]
         public string Street2 { get; set; }
-        [Column("cityname")]
+        [Column("cityname_s")]
         public string CityName { get; set; }
-        [Column("statename")]
+        [Column("statename_s")]
         public string StateName { get; set; }
-        [Column("stateabbr")]
+        [Column("stateabbr_s")]
         public string StateAbbr { get; set; }
-        [Column("zip")]
+        [Column("zip_i")]
         public string Zip { get; set; }
-        [Column("country")]
+        [Column("country_s")]
         public string Country { get; set; }
-        [Column("countryabbr")]
+        [Column("countryabbr_s")]
         public string CountryAbbr { get; set; }
     }
 }

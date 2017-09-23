@@ -5,15 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("dishingredients")]
+    [Table("tbldishingredient")]
     public class tblDishIngredient
     {
         //[Key]
         //[Column("id")]
         //public int ixDishIngredientId { get; set; }
-        [Column("ixdish")]
+        [Column("dish_ix")]
         public int ixDish{ get; set; }
-        [Column("ixingredient")]
+        [Column("ingredient_ix")]
         public int ixIngredient { get; set; }
 
         public tblDish tblDish { get; set; }
