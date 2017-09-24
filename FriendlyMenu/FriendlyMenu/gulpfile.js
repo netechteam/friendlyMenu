@@ -12,17 +12,18 @@ var webroot = "./wwwroot/";
 var paths = {
     scss: webroot + "css/**/*.scss",
     scssDest: webroot + "css/"
-}
+};
+
 gulp.task('compile:sass', function () {
     // place code for your default task here
-    gulp.src(paths.scss, { base: "./"})
+    gulp.src(paths.scss, { base: "./" })
         .pipe(sass().on('error', sass.logError))
-        .pipe(rename({dirname: ''}))
-        .pipe(gulp.dest(webroot + "/css/"))
+        .pipe(rename({ dirname: '' }))
+        .pipe(gulp.dest(webroot + "/css/"));
 });
 
 gulp.task("compile", ["compile:sasss"]);
 
 gulp.task('watch:sass', function () {
     gulp.watch(paths.scss, ['compile:sass']);
-})
+});
