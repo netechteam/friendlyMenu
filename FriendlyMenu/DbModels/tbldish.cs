@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("dish")]
+    [Table("tbldish")]
     public class tblDish
     {
         //public tbldish()
@@ -15,32 +15,34 @@ namespace DbModels
         //}
 
         [Key]
-        [Column("ixdish")]
+        [Column("dish_ix")]
         public int ixDish { get; set; }
-        [Column("restaurantid")]
+        [Column("restaurant_ix")]
         public int restaurantId { get; set; }
-        [Column("dishname")]
+        [Column("dishname_s")]
         public string DishName { get; set; }
-        [Column("description")]
+        [Column("description_s")]
         public string Description { get; set; }
-        [Column("categoryid")]
+        [Column("category_ix")]
         public int ixCategoryId { get; set; }
-        [Column("pricebreakfast")]
+        [Column("pricebreakfast_dbl")]
         public double PriceBreakfast { get; set; }
-        [Column("pricelunch")]
+        [Column("pricelunch_dbl")]
         public double PriceLunch { get; set; }
-        [Column("pricecombo")]
+        [Column("pricecombo_dbl")]
         public double PriceCombo { get; set; }
-        [Column("pricedinner")]
+        [Column("pricedinner_dbl")]
         public double PriceDinner { get; set; }
-        [Column("isbreakfast")]
+        [Column("isbreakfast_b")]
         public bool IsBreakfast { get; set; }
-        [Column("islunch")]
+        [Column("islunch_b")]
         public bool IsLunch { get; set; }
-        [Column("iscombo")]
+        [Column("iscombo_b")]
         public bool IsCombo { get; set; }
-        [Column("isspicy")]
+        [Column("isspicy_b")]
         public bool IsSpicy{ get; set; }
+        [Column("isfeatured_b")]
+        public bool IsFeatured { get; set; }
 
         //public virtual ICollection<tblIngredient> tblingredients { get; set; }
         public virtual ICollection<tblDishIngredient> dishIngredients { get; set; }

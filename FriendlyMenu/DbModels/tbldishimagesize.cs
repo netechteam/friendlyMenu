@@ -5,18 +5,18 @@ using System.Text;
 
 namespace DbModels
 {
-    [Table("dishimagesize")]
+    [Table("tbldishimagesize")]
     public class tblDishImageSize
     {
-        [Column("id")]
+        [Column("dishimagesize_ix")]
         public int Id { get; set; }
-        [Column("imageid")]
+        [Column("dishimage_ix")]
         public int ImageId { get; set; }
-        [Column("height")]
+        [Column("height_i")]
         public int Height { get; set; }
-        [Column("width")]
+        [Column("width_i")]
         public int Width { get; set; }
-        [Column("sizename")]
+        [Column("sizename_s")]
         public int SizeName { get; set; }
     }
 }

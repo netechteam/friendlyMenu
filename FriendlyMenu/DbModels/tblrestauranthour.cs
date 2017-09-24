@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DbModels
 {
-    [Table("restauranthour")]
+    [Table("tblrestauranthour")]
     public class tblRestaurantHour
     {
-        [Column("id")]
+        [Column("restauranthour_ix")]
         public int Id { get; set; }
-        [Column("restaurantid")]
+        [Column("restaurant_ix")]
         public int RestaurantId { get; set; }
-        [Column("sharedhourid")]
+        [Column("sharedhour_ix")]
         public int SharedHourId{ get; set; }
     }
 }
