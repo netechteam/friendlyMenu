@@ -1,4 +1,4 @@
-﻿/// <binding AfterBuild='watch:sass' Clean='watch:sass' ProjectOpened='watch:sass' />
+﻿/// <binding ProjectOpened='watch:sass' />
 /*
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. https://go.microsoft.com/fwlink/?LinkId=518007
@@ -9,8 +9,8 @@ var sass = require('gulp-sass');
 
 var webroot = "./wwwroot/";
 var paths = {
-    scss: webroot + "styles/sass/**/*.scss",
-    scssDest: webroot + "styles/css/" 
+    scss: webroot + "css/**/*.scss",
+    scssDest: webroot + "css/" 
 }
 gulp.task('compile:sass', function () {
     // place code for your default task here
