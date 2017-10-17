@@ -10,6 +10,6 @@ namespace Interfaces.Managers
     public interface IRestaurantManager
     {
         Task<CategoryPageVM> GetDishesByCategory(int categoryId, int restaurantId);
-        
-    }
+        Task <HomePageVM> GetHomePageByRestaurantId(int restaurantId);
+  }
 }

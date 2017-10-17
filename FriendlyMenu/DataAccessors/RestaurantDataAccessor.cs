@@ -78,46 +78,51 @@ namespace DataAccessors
             };
         }
 
-
-        //public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
-        //{
-        //    var allDBDishes = _context.tblDishes.Where(x => x.restaurantId == restaurantId && x.ixCategoryId == categoryId).Select(y => new DishSummaryDM
-        //    {
-        //        DishId = y.ixDish,
-        //        RestaurantId = y.restaurantId,
-        //        DishName = y.DishName,
-        //        Description = y.Description,
-        //        CategoryId = y.ixCategoryId,
-        //        IsBreakfast = y.IsBreakfast,
-        //        IsCombo = y.IsCombo,
-        //        IsLunch = y.IsLunch,
-        //        IsSpicy = y.IsSpicy,
-        //        BreakfastPrice = y.PriceBreakfast,
-        //        ComboPrice = y.PriceCombo,
-        //        DinnerPrice = y.PriceDinner,
-        //        LunchPrice = y.PriceLunch,
-        //        Ingredients = (from di in _context.tblDishIngredients
-        //                       join i in _context.tblIngredients on di.ixIngredient equals i.ixIngredient
-        //                       where di.ixDish == y.ixDish
-        //                       select new IngredientDM
-        //                       {
-        //                           IngredientId = di.ixIngredient,
-        //                           IngredientName = i.sIngredientName
-        //                       }).ToList(), 
-        //        ImageUrl = (from image in _context.DishImage
-        //                      join d in _context.tblDishes on image.ixdish equals d.ixDish
-        //                      where  image.ixdish == y.ixDish select image.ImageLocation).FirstOrDefault()
-        //    }).ToList();
-
-        //    var categoryName = (from x in _context.tblcategories where x.ixCategoryId == categoryId select x.sCategoryName).First();
-        //    var categoryDishes = new CategoryDishesDM
-        //    {
-        //        CategoryName = categoryName,
-        //        DishSummaries = allDBDishes
-
-        //    };
-        //    return categoryDishes;
-        //}
-        
+    public Task<HomePageDM> GetHomePageDm(int restaurantId)
+    {
+      throw new NotImplementedException();
     }
+
+
+    //public async Task<CategoryDishesDM> GetDishesByCategory(int categoryId, int restaurantId)
+    //{
+    //    var allDBDishes = _context.tblDishes.Where(x => x.restaurantId == restaurantId && x.ixCategoryId == categoryId).Select(y => new DishSummaryDM
+    //    {
+    //        DishId = y.ixDish,
+    //        RestaurantId = y.restaurantId,
+    //        DishName = y.DishName,
+    //        Description = y.Description,
+    //        CategoryId = y.ixCategoryId,
+    //        IsBreakfast = y.IsBreakfast,
+    //        IsCombo = y.IsCombo,
+    //        IsLunch = y.IsLunch,
+    //        IsSpicy = y.IsSpicy,
+    //        BreakfastPrice = y.PriceBreakfast,
+    //        ComboPrice = y.PriceCombo,
+    //        DinnerPrice = y.PriceDinner,
+    //        LunchPrice = y.PriceLunch,
+    //        Ingredients = (from di in _context.tblDishIngredients
+    //                       join i in _context.tblIngredients on di.ixIngredient equals i.ixIngredient
+    //                       where di.ixDish == y.ixDish
+    //                       select new IngredientDM
+    //                       {
+    //                           IngredientId = di.ixIngredient,
+    //                           IngredientName = i.sIngredientName
+    //                       }).ToList(), 
+    //        ImageUrl = (from image in _context.DishImage
+    //                      join d in _context.tblDishes on image.ixdish equals d.ixDish
+    //                      where  image.ixdish == y.ixDish select image.ImageLocation).FirstOrDefault()
+    //    }).ToList();
+
+    //    var categoryName = (from x in _context.tblcategories where x.ixCategoryId == categoryId select x.sCategoryName).First();
+    //    var categoryDishes = new CategoryDishesDM
+    //    {
+    //        CategoryName = categoryName,
+    //        DishSummaries = allDBDishes
+
+    //    };
+    //    return categoryDishes;
+    //}
+
+  }
 }

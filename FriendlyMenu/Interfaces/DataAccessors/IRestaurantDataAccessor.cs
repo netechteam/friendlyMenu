@@ -15,6 +15,8 @@ namespace Interfaces.DataAccessors
 
         //void GetDishesByCategoryId(int categoryId);
         //void GetDishById(int dishId);
+
+        Task<HomePageDM> GetHomePageDm(int restaurantId);
     }
 
 }

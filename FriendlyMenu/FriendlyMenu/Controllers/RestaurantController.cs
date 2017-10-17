@@ -27,9 +27,8 @@ namespace FriendlyMenu.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //var restaurant = await _restaurantManager.GetRestaurant(_tenant.RestaurantId);
-
-            return View();
+            var homePageVM = await _restaurantManager.GetHomePageByRestaurantId(_tenant.RestaurantId);
+            return View(homePageVM);
         }
 
         [Route("category/{categoryId}")]
